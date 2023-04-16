@@ -1,0 +1,59 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.gms.google-services'
+}
+
+android {
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.example.whatsappmy"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures{
+        viewBinding true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    //  WE ARE USING THIS DEPENDENCY BCOZ IN FUTURE WHEN CHANGE IN VERSION THEN THERE WILL BE NO PRBLM
+    // OR DIRECTLY COPY FROM DOUCUMENTATION AND PASTE BOTH TH DEP AT HERE
+    // AND REMOVE THE DEPENDENCY PROVIDE BY AUTO FIREBASE
+    implementation platform('com.google.firebase:firebase-bom:31.2.3')
+    implementation 'com.google.firebase:firebase-auth'
+    // HERE WE CAN REMOVE THE VERSION OF DEPENDENCY OF DATABASE
+    // BCOZ WE ARE USING THE BOM DEP
+    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
+    // FOR GOOGLE AUTHENTICATION
+    implementation 'com.google.android.gms:play-services-auth:20.5.0'
+    // FOR CIRCUALR IMAGE
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+    // USE FOR IMAGE FROM ONLINE
+    implementation 'com.squareup.picasso:picasso:2.8'
+    implementation 'com.google.firebase:firebase-database:20.1.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
